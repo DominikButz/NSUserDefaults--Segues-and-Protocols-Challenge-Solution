@@ -62,8 +62,8 @@
     
     else {
         
-        UIAlertView *invalidEntryAlert = [[UIAlertView alloc] initWithTitle:@"Invalid entry" message:@"You haven't filled all fields or the passwords you entered are not identical" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [invalidEntryAlert show];
+            UIAlertView *invalidEntryAlert = [[UIAlertView alloc] initWithTitle:@"Invalid entry" message:@"You haven't filled all fields or the passwords you entered are not identical" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [invalidEntryAlert show];
     }
     
     }

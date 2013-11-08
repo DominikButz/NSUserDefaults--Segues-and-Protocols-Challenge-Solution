@@ -60,7 +60,33 @@
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
     
-    [self performSegueWithIdentifier:@"toViewController" sender:sender];
+    if ([NSUserDefaults standardUserDefaults] != nil) {
+        
+        NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:USER_NAME];
+        NSString *password =[[NSUserDefaults standardUserDefaults] objectForKey:USER_PASSWORD];
+        
+        if ([self.usernameTextField.text isEqualToString:username] && [self.passwordTextField.text isEqualToString:password]) {
+            
+            [self performSegueWithIdentifier:@"toViewController" sender:sender];
+        }
+        
+        else {
+            
+            
+            UIAlertView *userCredentialsWrong = [[UIAlertView alloc] initWithTitle:@"Login failed" message:@"Login name and/or password incorrect, please re-enter!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [userCredentialsWrong show];
+            
+        }
+        
+        
+    }
+    else {
+        
+        UIAlertView *noUserCreated = [[UIAlertView alloc] initWithTitle:@"Login failed" message:@"No user login information found, please create a user account first!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [noUserCreated show];
+        
+    }
+    
      
 }
 
